@@ -1,0 +1,425 @@
+  :root {
+      --wine: #2b0a1f;
+      --wine-deep: #1a0512;
+      --pink: #ff6b9d;
+      --pink-soft: #ffb3c6;
+      --gold: #ffd166;
+      --cream: #fff5f7;
+      --red: #c9184a;
+  }
+
+  * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+  }
+
+  html,
+  body {
+      height: 100%;
+      background: radial-gradient(ellipse at top, var(--wine) 0%, var(--wine-deep) 70%);
+      overflow-x: hidden;
+      font-family: 'Quicksand', sans-serif;
+      color: var(--cream);
+  }
+
+  body {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-start;
+      position: relative;
+  }
+
+  /* Floating hearts background */
+  #hearts-bg {
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      overflow: hidden;
+      z-index: 0;
+  }
+
+  .heart {
+      position: absolute;
+      bottom: -10%;
+      font-size: 1.4rem;
+      opacity: 0.85;
+      animation: rise linear infinite;
+      filter: drop-shadow(0 0 6px rgba(255, 107, 157, 0.5));
+  }
+
+  @keyframes rise {
+      0% {
+          transform: translateY(0) translateX(0) rotate(0deg);
+          opacity: 0;
+      }
+
+      10% {
+          opacity: 0.9;
+      }
+
+      50% {
+          transform: translateY(-55vh) translateX(15px) rotate(15deg);
+      }
+
+      90% {
+          opacity: 0.7;
+      }
+
+      100% {
+          transform: translateY(-110vh) translateX(-15px) rotate(-10deg);
+          opacity: 0;
+      }
+  }
+
+  main {
+      position: relative;
+      z-index: 2;
+      width: 100%;
+      max-width: 820px;
+      padding: 5rem 1.5rem 6rem;
+      text-align: center;
+  }
+
+  .eyebrow {
+      letter-spacing: 0.35em;
+      text-transform: uppercase;
+      font-size: 0.75rem;
+      color: var(--gold);
+      margin-bottom: 1.2rem;
+      opacity: 0;
+      animation: fadeIn 1s ease forwards 0.2s;
+  }
+
+  h1 {
+      font-family: 'Playfair Display', serif;
+      font-weight: 700;
+      font-size: clamp(2.4rem, 7vw, 4.5rem);
+      line-height: 1.1;
+      color: var(--cream);
+      text-shadow: 0 0 40px rgba(255, 107, 157, 0.35);
+      opacity: 0;
+      animation: fadeUp 1s ease forwards 0.5s;
+  }
+
+  h1 span {
+      color: var(--pink);
+      font-style: italic;
+  }
+
+  .subtitle {
+      margin-top: 1.2rem;
+      font-size: 1.1rem;
+      color: var(--pink-soft);
+      opacity: 0;
+      animation: fadeUp 1s ease forwards 0.9s;
+  }
+
+  /* Pulsing heart with "eu te amo" */
+  .heart-center {
+      margin: 3.5rem auto 2.5rem;
+      position: relative;
+      width: min(320px, 80vw);
+      aspect-ratio: 1/0.9;
+      opacity: 0;
+      animation: fadeUp 1s ease forwards 1.2s;
+  }
+
+  .heart-shape {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+  }
+
+  .heart-shape svg {
+      width: 100%;
+      height: 100%;
+      filter: drop-shadow(0 0 35px rgba(255, 107, 157, 0.55));
+      animation: beat 1.6s ease-in-out infinite;
+  }
+
+  @keyframes beat {
+
+      0%,
+      100% {
+          transform: scale(1);
+      }
+
+      15% {
+          transform: scale(1.08);
+      }
+
+      30% {
+          transform: scale(0.98);
+      }
+
+      45% {
+          transform: scale(1.05);
+      }
+  }
+
+  .heart-text {
+      position: relative;
+      z-index: 3;
+      font-family: 'Playfair Display', serif;
+      font-style: italic;
+      font-weight: 600;
+      font-size: clamp(1.1rem, 3.4vw, 1.6rem);
+      color: var(--wine-deep);
+      max-width: 70%;
+      line-height: 1.25;
+  }
+
+  /* Animated qualities text */
+  .qualities-wrap {
+      margin-top: 2rem;
+      min-height: 3.2rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1.2rem, 4vw, 1.8rem);
+      opacity: 0;
+      animation: fadeUp 1s ease forwards 1.6s;
+  }
+
+  .qualities-prefix {
+      color: var(--gold);
+      margin-right: 0.5ch;
+      font-weight: 500;
+  }
+
+  #typed {
+      color: var(--pink);
+      border-right: 2px solid var(--gold);
+      padding-right: 4px;
+      white-space: nowrap;
+      overflow: hidden;
+  }
+
+  /* Scroll cue at end of hero */
+  .scroll-cue {
+      margin-top: 3.5rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.6rem;
+      color: var(--pink-soft);
+      font-size: 0.75rem;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      opacity: 0;
+      animation: fadeIn 1s ease forwards 2.4s;
+  }
+
+  .scroll-cue svg {
+      width: 18px;
+      height: 26px;
+      animation: bounce 1.8s ease-in-out infinite;
+  }
+
+  @keyframes bounce {
+
+      0%,
+      100% {
+          transform: translateY(0);
+          opacity: 0.5;
+      }
+
+      50% {
+          transform: translateY(8px);
+          opacity: 1;
+      }
+  }
+
+  /* Scroll-revealed sections */
+  .reveal-section {
+      position: relative;
+      z-index: 2;
+      width: 100%;
+      max-width: 680px;
+      margin: 0 auto;
+      padding: 3.5rem 1.5rem;
+      text-align: center;
+  }
+
+  .reveal {
+      opacity: 0;
+      transform: translateY(50px);
+      transition: opacity 0.9s ease, transform 0.9s ease;
+  }
+
+  .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+  }
+
+  .section-title {
+      font-family: 'Playfair Display', serif;
+      font-style: italic;
+      font-weight: 600;
+      font-size: clamp(1.4rem, 4vw, 2rem);
+      color: var(--pink);
+      margin-bottom: 1.5rem;
+  }
+
+  .message {
+      font-size: 1.05rem;
+      line-height: 1.95;
+      color: var(--cream);
+      max-width: 600px;
+      margin: 0 auto 1.6rem;
+  }
+
+  .message:last-child {
+      margin-bottom: 0;
+  }
+
+  .message strong {
+      color: var(--gold);
+      font-weight: 600;
+  }
+
+  .divider {
+      width: 60px;
+      height: 2px;
+      margin: 2.5rem auto;
+      background: linear-gradient(90deg, transparent, var(--pink), transparent);
+      opacity: 0;
+      transition: opacity 0.9s ease;
+  }
+
+  .divider.visible {
+      opacity: 1;
+  }
+
+  .signoff {
+      font-family: 'Playfair Display', serif;
+      font-style: italic;
+      font-size: clamp(1.1rem, 3vw, 1.4rem);
+      color: var(--gold);
+      margin-top: 0.5rem;
+  }
+
+  .footer-hearts {
+      margin-top: 2.5rem;
+      font-size: 1.5rem;
+      letter-spacing: 0.5rem;
+  }
+
+  /* 3D rotating photo carousel */
+  .carousel-3d-wrap {
+      margin: 3rem auto;
+      max-width: 600px;
+      width: 100%;
+  }
+
+  .carousel-3d-stage {
+      position: relative;
+      width: 100%;
+      height: 320px;
+      perspective: 1200px;
+  }
+
+  .carousel-3d-ring {
+      position: absolute;
+      width: 200px;
+      height: 260px;
+      left: 50%;
+      top: 50%;
+      margin-left: -100px;
+      margin-top: -130px;
+      transform-style: preserve-3d;
+      /* rotação controlada via JavaScript (requestAnimationFrame) */
+  }
+
+  .carousel-3d-ring img {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 16px;
+      box-shadow: 0 15px 40px rgba(0, 0, 0, 0.5), 0 0 0 1px rgba(255, 255, 255, 0.08);
+      backface-visibility: hidden;
+  }
+
+  .carousel-floor {
+      position: absolute;
+      left: 50%;
+      bottom: 18px;
+      width: 260px;
+      height: 40px;
+      margin-left: -130px;
+      background: radial-gradient(ellipse at center, rgba(255, 107, 157, 0.35) 0%, transparent 70%);
+      filter: blur(4px);
+      z-index: -1;
+  }
+
+  .carousel-hint {
+      text-align: center;
+      margin-top: 1rem;
+      font-size: 0.75rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--pink-soft);
+      opacity: 0.7;
+  }
+
+  footer {
+      position: relative;
+      z-index: 2;
+      padding-bottom: 4rem;
+      text-align: center;
+  }
+
+  @keyframes fadeIn {
+      to {
+          opacity: 1;
+      }
+  }
+
+  @keyframes fadeUp {
+      from {
+          opacity: 0;
+          transform: translateY(24px);
+      }
+
+      to {
+          opacity: 1;
+          transform: translateY(0);
+      }
+  }
+
+  @keyframes pulse-opacity {
+
+      0%,
+      100% {
+          opacity: 1;
+      }
+
+      50% {
+          opacity: 0.5;
+      }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+      * {
+          animation-duration: 0.01ms !important;
+          animation-iteration-count: 1 !important;
+          transition-duration: 0.01ms !important;
+      }
+
+      .heart {
+          display: none;
+      }
+
+      .reveal {
+          opacity: 1;
+          transform: none;
+      }
+  }

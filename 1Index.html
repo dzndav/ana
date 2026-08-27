@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>feliz aniversário</title>
+  <link rel="stylesheet" href="css/style1.css">
+</head>
+
+<body>
+
+  <div class="stage" id="stage">
+
+    <div id="questionScreen">
+      <div class="eyebrow">Uma pergunta simples</div>
+      <h1>O DANIEL MANDA EM VOCE?</h1>
+      <p class="sub" style="text-align: center;">Só tem um jeito certo de responder isso.</p>
+
+      <div class="buttons" id="buttonsBox">
+        <a href="2index.html">
+        <button id="yes" onclick="sayYes()">Sim</button>
+      </a>
+        <button id="no" onmouseover="dodge()" onclick="dodge()"
+          ontouchstart="dodge(); event.preventDefault();">Não</button>
+      </div>
+
+      <div class="counter" id="counter"></div>
+    </div>
+
+    <div class="yes-screen" id="yesScreen">
+      <div class="heart">❤️</div>
+      <h1>Sabia que você diria sim!</h1>
+      <p class="sub">Agora é oficial. 💕</p>
+    </div>
+
+  </div>
+  <script src="javascript/script1.js"></script>
+</body>
+
+</html>
