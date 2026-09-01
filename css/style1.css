@@ -71,7 +71,7 @@ h1 {
     width: 100%;
     max-width: 560px;
     height: 90px;
-    margin-left: 15%;
+    margin: 0 auto;
 }
 
 button {
