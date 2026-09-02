@@ -58,7 +58,7 @@ h1 {
     color: #6e2a3a;
     max-width: 480px;
     font-style: italic;
-    margin-left: 20%;
+    margin:0% auto;
 }
 
 .buttons {
